@@ -32,6 +32,8 @@ def to_wake_device(proximity, interval=0):
 	Params:
 		proximity {double}: The current proximity to the user in centimetres
 		interval {integer}: milliseconds since the trigger proximity was first reached.
+	Returns:
+		{bool}: whether the device should be woken
 	"""
 
 	#Deal in centimetres
@@ -50,4 +52,11 @@ def to_wake_device(proximity, interval=0):
 	return False
 
 def measure_proximity():
-	"""TODO"""
+	"""
+	Measures the proximity to the nearest object for the Grove Ultrasonic Ranger.
+	Returns:
+		{long}: Proximity to nearest object in centimetres
+	"""
+	#Standard ultrasonic library available for Arduino
+	import ultrasonic
+	return ultrasonic.MeasureInCentimeters()
